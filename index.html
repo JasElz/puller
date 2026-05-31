@@ -38,15 +38,14 @@
     position: fixed; top: 0; left: 0; right: 0;
     background: rgba(247, 245, 240, 0.92);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border);
+    border: none;
     z-index: 100;
-    padding: 0 5% 0 5%;
-    overflow: visible;
+    padding: 0 5%;
   }
   .nav-inner {
     max-width: 1100px; margin: 0 auto;
     display: flex; align-items: center; justify-content: space-between;
-    height: 64px; padding-right: 8px;
+    height: 72px; padding: 0 4px;
   }
   .logo {
     font-family: 'DM Serif Display', serif;
@@ -202,9 +201,13 @@
     background: var(--white);
     border-right: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-    transition: background 0.25s;
+    transition: background 0.25s, transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    color: inherit;
   }
-  .service-card:hover { background: var(--paper); }
+  .service-card:hover { background: var(--paper); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
   .service-icon {
     width: 44px; height: 44px;
     background: var(--accent-light);
@@ -369,6 +372,7 @@
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a href="#" class="logo">Pullr <span>Studio</span></a>
@@ -381,6 +385,7 @@
   </div>
 </nav>
 
+<!-- HERO -->
 <div class="hero">
   <div class="hero-content">
     <span class="hero-tag">Virtual Assistant Services</span>
@@ -391,34 +396,154 @@
       <a href="#services" class="btn-secondary">See what we do</a>
     </div>
   </div>
-  <div class="hero-visual">
-    <div class="stat-row" style="grid-template-columns: 1fr 1fr;">
-      <div class="stat-card">
-        <div class="num">999+</div>
-        <div class="lbl">Tickets pulled</div>
-      </div>
-      <div class="stat-card">
-        <div class="num">24/7</div>
-        <div class="lbl">Always available</div>
-      </div>
-      <div class="stat-card">
-        <div class="num" style="font-size:22px;">100K+</div>
-        <div class="lbl">Accounts signed up</div>
-      </div>
-      <div class="stat-card">
-        <div class="num">1yr</div>
-        <div class="lbl">In business</div>
-      </div>
-    </div>
-    <ul class="task-list">
-      <li><span class="dot done"></span>Tickets pulled</li>
-      <li><span class="dot done"></span>Accounts created</li>
-      <li><span class="dot done"></span>Items being listed</li>
-      <li><span class="dot done"></span>Orders being processed</li>
-    </ul>
+  <div class="hero-visual" style="padding: 0; overflow: hidden; background: transparent; border: none;">
+    <svg width="100%" viewBox="0 0 680 520" role="img" xmlns="http://www.w3.org/2000/svg">
+      <title>Ticket pulling illustration</title>
+      <desc>People pulling and managing tickets</desc>
+      <rect width="680" height="520" fill="#f7f5f0" rx="20"/>
+      <!-- Background tickets -->
+      <g transform="translate(30, 40) rotate(-12)">
+        <rect x="0" y="0" width="160" height="72" rx="10" fill="#ede9e2" stroke="#dedad4" stroke-width="0.5"/>
+        <line x1="48" y1="0" x2="48" y2="72" stroke="#dedad4" stroke-width="1" stroke-dasharray="4,3"/>
+        <circle cx="48" cy="0" r="8" fill="#f7f5f0"/><circle cx="48" cy="72" r="8" fill="#f7f5f0"/>
+        <rect x="58" y="14" width="80" height="8" rx="4" fill="#dedad4"/>
+        <rect x="58" y="28" width="55" height="6" rx="3" fill="#e8e4dc"/>
+        <rect x="58" y="44" width="65" height="6" rx="3" fill="#e8e4dc"/>
+        <rect x="8" y="20" width="28" height="28" rx="4" fill="#e8e4dc"/>
+      </g>
+      <g transform="translate(490, 20) rotate(8)">
+        <rect x="0" y="0" width="180" height="80" rx="10" fill="#f5ede7" stroke="#e8c9bc" stroke-width="0.5"/>
+        <line x1="54" y1="0" x2="54" y2="80" stroke="#e8c9bc" stroke-width="1" stroke-dasharray="4,3"/>
+        <circle cx="54" cy="0" r="8" fill="#f7f5f0"/><circle cx="54" cy="80" r="8" fill="#f7f5f0"/>
+        <rect x="64" y="16" width="90" height="8" rx="4" fill="#e8c9bc"/>
+        <rect x="64" y="30" width="65" height="6" rx="3" fill="#f0d8ce"/>
+        <rect x="64" y="50" width="75" height="6" rx="3" fill="#f0d8ce"/>
+        <rect x="8" y="22" width="32" height="32" rx="4" fill="#e8c9bc"/>
+      </g>
+      <g transform="translate(10, 390) rotate(6)">
+        <rect x="0" y="0" width="150" height="68" rx="10" fill="#ede9e2" stroke="#dedad4" stroke-width="0.5"/>
+        <line x1="46" y1="0" x2="46" y2="68" stroke="#dedad4" stroke-width="1" stroke-dasharray="4,3"/>
+        <circle cx="46" cy="0" r="8" fill="#f7f5f0"/><circle cx="46" cy="68" r="8" fill="#f7f5f0"/>
+        <rect x="56" y="14" width="70" height="7" rx="3" fill="#dedad4"/>
+        <rect x="56" y="27" width="50" height="5" rx="3" fill="#e8e4dc"/>
+        <rect x="56" y="42" width="60" height="5" rx="3" fill="#e8e4dc"/>
+        <rect x="6" y="16" width="26" height="26" rx="4" fill="#e8e4dc"/>
+      </g>
+      <g transform="translate(510, 410) rotate(-7)">
+        <rect x="0" y="0" width="155" height="70" rx="10" fill="#f5ede7" stroke="#e8c9bc" stroke-width="0.5"/>
+        <line x1="48" y1="0" x2="48" y2="70" stroke="#e8c9bc" stroke-width="1" stroke-dasharray="4,3"/>
+        <circle cx="48" cy="0" r="8" fill="#f7f5f0"/><circle cx="48" cy="70" r="8" fill="#f7f5f0"/>
+        <rect x="58" y="14" width="75" height="7" rx="3" fill="#e8c9bc"/>
+        <rect x="58" y="28" width="55" height="5" rx="3" fill="#f0d8ce"/>
+        <rect x="58" y="43" width="65" height="5" rx="3" fill="#f0d8ce"/>
+        <rect x="7" y="18" width="28" height="28" rx="4" fill="#e8c9bc"/>
+      </g>
+      <g transform="translate(260, 30) rotate(15)" opacity="0.5">
+        <rect x="0" y="0" width="90" height="40" rx="6" fill="#f5ede7" stroke="#e8c9bc" stroke-width="0.5"/>
+        <line x1="28" y1="0" x2="28" y2="40" stroke="#e8c9bc" stroke-width="0.8" stroke-dasharray="3,2"/>
+        <circle cx="28" cy="0" r="5" fill="#f7f5f0"/><circle cx="28" cy="40" r="5" fill="#f7f5f0"/>
+      </g>
+      <!-- Person 1 — seated pulling tickets -->
+      <g transform="translate(100, 180)">
+        <rect x="-20" y="180" width="180" height="10" rx="3" fill="#dedad4"/>
+        <rect x="10" y="190" width="10" height="50" rx="2" fill="#dedad4"/>
+        <rect x="120" y="190" width="10" height="50" rx="2" fill="#dedad4"/>
+        <rect x="40" y="110" width="50" height="70" rx="8" fill="#e8e4dc" stroke="#dedad4" stroke-width="0.5"/>
+        <rect x="48" y="120" width="36" height="55" rx="8" fill="#c85a2f"/>
+        <circle cx="66" cy="100" r="22" fill="#e8b89a"/>
+        <path d="M44 95 Q66 72 88 95 Q88 78 66 74 Q44 78 44 95Z" fill="#3d2b1f"/>
+        <circle cx="59" cy="98" r="2.5" fill="#3d2b1f"/>
+        <circle cx="73" cy="98" r="2.5" fill="#3d2b1f"/>
+        <path d="M60 108 Q66 113 72 108" stroke="#3d2b1f" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M50 138 Q30 155 15 165" stroke="#e8b89a" stroke-width="12" stroke-linecap="round" fill="none"/>
+        <path d="M82 138 Q100 155 115 162" stroke="#e8b89a" stroke-width="12" stroke-linecap="round" fill="none"/>
+        <circle cx="14" cy="166" r="8" fill="#e8b89a"/>
+        <circle cx="116" cy="163" r="8" fill="#e8b89a"/>
+        <g transform="translate(30, 150) rotate(-3)">
+          <rect x="0" y="0" width="100" height="46" rx="7" fill="#ffffff" stroke="#dedad4" stroke-width="1"/>
+          <line x1="30" y1="0" x2="30" y2="46" stroke="#dedad4" stroke-width="1" stroke-dasharray="3,2"/>
+          <circle cx="30" cy="0" r="6" fill="#f7f5f0"/><circle cx="30" cy="46" r="6" fill="#f7f5f0"/>
+          <rect x="36" y="8" width="50" height="6" rx="3" fill="#c85a2f" opacity="0.6"/>
+          <rect x="36" y="20" width="36" height="4" rx="2" fill="#dedad4"/>
+          <rect x="36" y="30" width="44" height="4" rx="2" fill="#dedad4"/>
+          <rect x="4" y="10" width="20" height="20" rx="3" fill="#f5ede7"/>
+        </g>
+      </g>
+      <!-- Person 2 — center holding stack -->
+      <g transform="translate(290, 140)">
+        <rect x="28" y="100" width="44" height="70" rx="10" fill="#0f0e0c"/>
+        <rect x="30" y="165" width="16" height="55" rx="6" fill="#3d2b1f"/>
+        <rect x="54" y="165" width="16" height="55" rx="6" fill="#3d2b1f"/>
+        <rect x="26" y="214" width="24" height="10" rx="4" fill="#0f0e0c"/>
+        <rect x="50" y="214" width="24" height="10" rx="4" fill="#0f0e0c"/>
+        <circle cx="50" cy="76" r="24" fill="#c8956a"/>
+        <path d="M26 70 Q50 48 74 70 Q74 52 50 46 Q26 52 26 70Z" fill="#1a1008"/>
+        <circle cx="43" cy="74" r="2.5" fill="#1a1008"/>
+        <circle cx="57" cy="74" r="2.5" fill="#1a1008"/>
+        <path d="M44 84 Q50 89 56 84" stroke="#1a1008" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M30 120 Q10 130 0 145" stroke="#c8956a" stroke-width="13" stroke-linecap="round" fill="none"/>
+        <path d="M72 120 Q90 130 100 145" stroke="#c8956a" stroke-width="13" stroke-linecap="round" fill="none"/>
+        <g transform="translate(-8, 138)">
+          <rect x="2" y="6" width="112" height="50" rx="7" fill="#ede9e2" stroke="#dedad4" stroke-width="0.5" transform="rotate(-4)"/>
+          <rect x="1" y="3" width="112" height="50" rx="7" fill="#f5ede7" stroke="#e8c9bc" stroke-width="0.5" transform="rotate(-2)"/>
+          <rect x="0" y="0" width="112" height="50" rx="7" fill="#ffffff" stroke="#dedad4" stroke-width="1"/>
+          <line x1="34" y1="0" x2="34" y2="50" stroke="#dedad4" stroke-width="1" stroke-dasharray="3,2"/>
+          <circle cx="34" cy="0" r="6" fill="#f7f5f0"/><circle cx="34" cy="50" r="6" fill="#f7f5f0"/>
+          <rect x="40" y="9" width="56" height="7" rx="3" fill="#c85a2f" opacity="0.7"/>
+          <rect x="40" y="22" width="40" height="4" rx="2" fill="#dedad4"/>
+          <rect x="40" y="32" width="50" height="4" rx="2" fill="#dedad4"/>
+          <rect x="5" y="10" width="22" height="24" rx="3" fill="#f5ede7"/>
+        </g>
+      </g>
+      <!-- Person 3 — right on laptop -->
+      <g transform="translate(460, 185)">
+        <rect x="20" y="170" width="100" height="12" rx="4" fill="#e8e4dc" stroke="#dedad4" stroke-width="0.5"/>
+        <rect x="55" y="182" width="12" height="55" rx="3" fill="#dedad4"/>
+        <rect x="35" y="200" width="70" height="8" rx="3" fill="#dedad4"/>
+        <rect x="35" y="110" width="50" height="65" rx="10" fill="#5aa46b"/>
+        <circle cx="60" cy="90" r="22" fill="#d4956a"/>
+        <path d="M38 84 Q60 64 82 84 Q82 68 60 62 Q38 68 38 84Z" fill="#4a2c1a"/>
+        <circle cx="60" cy="63" r="10" fill="#4a2c1a"/>
+        <circle cx="53" cy="88" r="2.5" fill="#4a2c1a"/>
+        <circle cx="67" cy="88" r="2.5" fill="#4a2c1a"/>
+        <path d="M54 98 Q60 103 66 98" stroke="#4a2c1a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M37 130 Q20 148 10 160" stroke="#d4956a" stroke-width="12" stroke-linecap="round" fill="none"/>
+        <path d="M83 130 Q100 148 110 158" stroke="#d4956a" stroke-width="12" stroke-linecap="round" fill="none"/>
+        <rect x="-5" y="155" width="130" height="82" rx="5" fill="#dedad4"/>
+        <rect x="2" y="162" width="116" height="68" rx="3" fill="#1a1a1a"/>
+        <rect x="8" y="168" width="70" height="6" rx="2" fill="#c85a2f" opacity="0.8"/>
+        <rect x="8" y="178" width="100" height="4" rx="2" fill="#444" opacity="0.7"/>
+        <rect x="8" y="186" width="85" height="4" rx="2" fill="#444" opacity="0.6"/>
+        <rect x="8" y="194" width="95" height="4" rx="2" fill="#444" opacity="0.6"/>
+        <rect x="8" y="202" width="75" height="4" rx="2" fill="#444" opacity="0.5"/>
+        <rect x="8" y="210" width="90" height="4" rx="2" fill="#444" opacity="0.5"/>
+        <circle cx="112" cy="180" r="5" fill="#5aa46b" opacity="0.9"/>
+        <circle cx="112" cy="196" r="5" fill="#5aa46b" opacity="0.9"/>
+        <circle cx="112" cy="212" r="5" fill="#dedad4" opacity="0.5"/>
+      </g>
+      <!-- Floating featured ticket top center -->
+      <g transform="translate(275, 48)">
+        <rect x="0" y="0" width="130" height="58" rx="9" fill="#ffffff" stroke="#c85a2f" stroke-width="1.5"/>
+        <line x1="40" y1="0" x2="40" y2="58" stroke="#c85a2f" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+        <circle cx="40" cy="0" r="7" fill="#f7f5f0"/><circle cx="40" cy="58" r="7" fill="#f7f5f0"/>
+        <rect x="48" y="10" width="68" height="8" rx="4" fill="#c85a2f" opacity="0.8"/>
+        <rect x="48" y="24" width="50" height="5" rx="3" fill="#f5ede7"/>
+        <rect x="48" y="36" width="60" height="5" rx="3" fill="#f5ede7"/>
+        <rect x="6" y="12" width="26" height="28" rx="4" fill="#f5ede7"/>
+        <line x1="65" y1="-6" x2="65" y2="-18" stroke="#c85a2f" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+        <line x1="78" y1="-4" x2="80" y2="-16" stroke="#c85a2f" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+        <line x1="52" y1="-4" x2="50" y2="-16" stroke="#c85a2f" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+      </g>
+      <!-- Badge label -->
+      <g transform="translate(240, 468)">
+        <rect x="0" y="0" width="200" height="34" rx="17" fill="#0f0e0c"/>
+        <text x="100" y="22" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="500" fill="#ffffff">Ticket Pulling Experts</text>
+      </g>
+    </svg>
   </div>
 </div>
 
+<!-- SERVICES -->
 <section id="services">
   <div class="section-inner">
     <p class="section-label">What we offer</p>
@@ -426,58 +551,59 @@
     <p class="section-sub">Reliable, fast, and meticulous virtual assistance for every repetitive task your business needs.</p>
     <div class="services-grid">
 
-      <div class="service-card">
+      <a href="service-ticket-pulling.html" target="_blank" class="service-card">
         <div class="service-icon">
           <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M8 8h8M8 16h5"/></svg>
         </div>
         <h3>Manual ticket pulling</h3>
         <p>We manually pull tickets from any platform — events, support queues, order systems — with speed and accuracy.</p>
-      </div>
+      </a>
 
-      <div class="service-card">
+      <a href="service-account-creation.html" target="_blank" class="service-card">
         <div class="service-icon">
           <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M16 11l2 2 4-4"/></svg>
         </div>
         <h3>Account creation</h3>
         <p>Bulk or single account setup across platforms — done correctly, following your exact specifications every time.</p>
-      </div>
+      </a>
 
-      <div class="service-card">
+      <a href="service-signups.html" target="_blank" class="service-card">
         <div class="service-icon">
           <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
         </div>
         <h3>Sign-ups & form fills</h3>
         <p>Registration forms, waitlists, subscriptions — we handle all sign-up tasks accurately and without delays.</p>
-      </div>
+      </a>
 
-      <div class="service-card">
+      <a href="service-inventory.html" target="_blank" class="service-card">
         <div class="service-icon">
           <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
         </div>
         <h3>Inventory listings</h3>
         <p>Upload, format, and list products on any marketplace or platform — we keep your inventory organized and live.</p>
-      </div>
+      </a>
 
-      <div class="service-card">
+      <a href="service-data-entry.html" target="_blank" class="service-card">
         <div class="service-icon">
           <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         </div>
         <h3>Data entry & research</h3>
         <p>Spreadsheets, databases, research compiling — clean, structured, and delivered on time.</p>
-      </div>
+      </a>
 
-      <div class="service-card">
+      <a href="service-more.html" target="_blank" class="service-card">
         <div class="service-icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
         </div>
         <h3>And much more</h3>
         <p>Email management, scheduling, web scraping, monitoring tasks — just tell us what you need done.</p>
-      </div>
+      </a>
 
     </div>
   </div>
 </section>
 
+<!-- HOW IT WORKS -->
 <section id="how">
   <div class="section-inner">
     <p class="section-label">The process</p>
@@ -516,30 +642,32 @@
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="section-inner">
     <p class="section-label">Client reviews</p>
     <h2 class="section-title">Trusted by busy<br>teams everywhere.</h2>
     <div class="testi-grid">
       <div class="testi-card">
-      <div class="stars">★★★★★</div>
-      blockquote>"They pulled over 300 tickets for our event launch flawlessly. Saved my team hours of manual work."</blockquote>
-      <div class="testi-author"><strong>Maria T.</strong>Event Manager, Manila</div>
-    </div>
-    <div class="testi-card">
-      <div class="stars">★★★★★</div>
-      blockquote>"Account creation used to take us a full day. Pullr Studio handles our weekly batch in a couple of hours. Incredible."</blockquote>
-      <div class="testi-author"><strong>James K.</strong>Operations Lead, Singapore</div>
-    </div>
-    <div class="testi-card">
-      <div class="stars">★★★★★</div>
-      blockquote>"We listed 500+ products on our store with zero errors. Professional, fast, and worth every cent."</blockquote>
-      <div class="testi-author"><strong>Leila S.</strong>E-commerce Owner</div>
-    </div>
+        <div class="stars">★★★★★</div>
+        <blockquote>"They pulled over 300 tickets for our event launch flawlessly. Saved my team hours of manual work."</blockquote>
+        <div class="testi-author"><strong>Maria T.</strong>Event Manager, Manila</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Account creation used to take us a full day. Pullr Studio handles our weekly batch in a couple of hours. Incredible."</blockquote>
+        <div class="testi-author"><strong>James K.</strong>Operations Lead, Singapore</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"We listed 500+ products on our store with zero errors. Professional, fast, and worth every cent."</blockquote>
+        <div class="testi-author"><strong>Leila S.</strong>E-commerce Owner</div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- CONTACT / CTA -->
 <section id="contact">
   <div class="cta-inner">
     <div>
@@ -547,13 +675,12 @@
       <h2 class="section-title">Ready to delegate?<br>Let's talk.</h2>
       <p class="section-sub">Tell us your task and we'll get back to you within a few hours with a plan and pricing.</p>
     </div>
-    
-    <div class="contact-form" id="contactForm">
+    <div class="contact-form">
       <div class="form-row">
-        <input type="text" id="senderName" name="user_name" placeholder="Your name" required>
-        <input type="email" id="senderEmail" name="user_email" placeholder="Email address" required>
+        <input type="text" placeholder="Your name">
+        <input type="email" placeholder="Email address">
       </div>
-      <select id="serviceNeeded" name="service_needed" required>
+      <select>
         <option value="" disabled selected>Service needed</option>
         <option>Manual ticket pulling</option>
         <option>Account creation</option>
@@ -562,21 +689,24 @@
         <option>Data entry & research</option>
         <option>Other / multiple services</option>
       </select>
-      <textarea id="taskDetails" name="message" placeholder="Describe your task, quantity, and timeline..." required></textarea>
-      <button class="btn-submit" id="submitBtn">Send request →</button>
+      <textarea placeholder="Describe your task, quantity, and timeline..."></textarea>
+      <button class="btn-submit" onclick="alert('Thanks! We\'ll be in touch shortly.')">Send request →</button>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
 
+      <!-- Brand -->
       <div class="footer-brand">
         <a href="#" class="logo">Pullr <span>Studio</span></a>
         <p>Your go-to studio for fast, accurate ticket pulling and virtual assistant services.</p>
       </div>
 
+      <!-- Social platforms -->
       <div class="footer-col">
         <h4>Find us on</h4>
         <ul>
@@ -607,7 +737,7 @@
           <li>
             <a href="https://instagram.com" target="_blank">
               <span class="social-icon">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204 0.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
               </span>
               Instagram
             </a>
@@ -615,6 +745,7 @@
         </ul>
       </div>
 
+      <!-- Direct contact -->
       <div class="footer-col">
         <h4>Reach us directly</h4>
         <ul>
@@ -650,56 +781,96 @@
   </div>
 </footer>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-<script type="text/javascript">
-  (function() {
-    emailjs.init({
-      publicKey: "N2JtRFYeANd2D_3ty",
-    });
-  })();
+<script>
+document.addEventListener('DOMContentLoaded', function () {
 
-  document.getElementById('submitBtn').addEventListener('click', function(e) {
-    e.preventDefault();
+    // Initialize EmailJS
+    emailjs.init("N2JtRFYeANd2D_3ty");
 
-    const btn = document.getElementById('submitBtn');
-    
-    const templateParams = {
-      user_name: document.getElementById('senderName').value,
-      user_email: document.getElementById('senderEmail').value,
-      service_needed: document.getElementById('serviceNeeded').value,
-      message: document.getElementById('taskDetails').value
-    };
+    const submitBtn = document.getElementById('submitBtn');
 
-    // Prevent blanks from breaking data streams
-    if (!templateParams.user_name || !templateParams.user_email || !templateParams.message) {
-      alert("Please fill out all fields before sending.");
-      return;
+    if (!submitBtn) {
+        console.error("submitBtn not found!");
+        return;
     }
 
-    btn.innerText = "Sending...";
-    btn.style.opacity = "0.6";
+    submitBtn.addEventListener('click', async function (e) {
+        e.preventDefault();
 
-    // IMPORTANT: Ensure 'template_lvqrwqw' matches your designated template ID inside EmailJS
-    emailjs.send('service_awghx4g', 'template_lvqrwqw', templateParams)
-      .then(function(response) {
-        console.log('SUCCESS!', response.status, response.text);
-        alert('Thanks! We\'ll be in touch shortly.');
-        
-        // Reset values completely
-        document.getElementById('senderName').value = '';
-        document.getElementById('senderEmail').value = '';
-        document.getElementById('serviceNeeded').value = '';
-        document.getElementById('taskDetails').value = '';
-      }, function(error) {
-        console.log('FAILED...', error);
-        alert('Oops... Something went wrong. Please check your network and try again.');
-      })
-      .finally(function() {
-        btn.innerText = "Send request →";
-        btn.style.opacity = "1";
-      });
-  });
+        const btn = this;
+
+        const senderName = document.getElementById('senderName');
+        const senderEmail = document.getElementById('senderEmail');
+        const serviceNeeded = document.getElementById('serviceNeeded');
+        const taskDetails = document.getElementById('taskDetails');
+
+        if (!senderName || !senderEmail || !serviceNeeded || !taskDetails) {
+            alert("One or more form fields are missing.");
+            return;
+        }
+
+        const templateParams = {
+            user_name: senderName.value.trim(),
+            user_email: senderEmail.value.trim(),
+            service_needed: serviceNeeded.value.trim(),
+            message: taskDetails.value.trim()
+        };
+
+        // Validation
+        if (
+            !templateParams.user_name ||
+            !templateParams.user_email ||
+            !templateParams.message
+        ) {
+            alert("Please fill out all required fields.");
+            return;
+        }
+
+        btn.disabled = true;
+        btn.style.opacity = "0.6";
+        btn.innerText = "Sending...";
+
+        try {
+
+            const response = await emailjs.send(
+                "service_awghx4g",
+                "template_lvqrwqw",
+                templateParams
+            );
+
+            console.log("SUCCESS:", response);
+
+            alert("Thanks! We'll be in touch shortly.");
+
+            // Clear form
+            senderName.value = "";
+            senderEmail.value = "";
+            serviceNeeded.value = "";
+            taskDetails.value = "";
+
+        } catch (error) {
+
+            console.error("EMAILJS ERROR:", error);
+
+            alert(
+                "Email failed.\n\n" +
+                (error?.text ||
+                 error?.message ||
+                 JSON.stringify(error))
+            );
+
+        } finally {
+
+            btn.disabled = false;
+            btn.style.opacity = "1";
+            btn.innerText = "Send request →";
+
+        }
+    });
+});
 </script>
 
 </body>

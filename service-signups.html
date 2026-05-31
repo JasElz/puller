@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign-ups & Form Fills — Pullr Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--ink:#0f0e0c;--ink-muted:#6b6860;--ink-faint:#b5b3ae;--paper:#f7f5f0;--paper-warm:#ede9e2;--accent:#c85a2f;--accent-light:#f5ede7;--border:#dedad4;--white:#ffffff}
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  nav{background:rgba(247,245,240,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 5%;position:sticky;top:0;z-index:100}
+  .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-family:'DM Serif Display',serif;font-size:22px;color:var(--ink);text-decoration:none}
+  .logo span{color:var(--accent);font-style:italic}
+  .back-btn{display:flex;align-items:center;gap:6px;color:var(--ink-muted);text-decoration:none;font-size:14px;transition:color 0.2s}
+  .back-btn:hover{color:var(--ink)}
+  .hero{background:var(--ink);padding:80px 5%}
+  .hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr auto;align-items:center;gap:40px}
+  .hero-badge{display:inline-block;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.6);font-size:11px;font-weight:500;padding:5px 14px;border-radius:100px;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}
+  .hero h1{font-family:'DM Serif Display',serif;font-size:clamp(32px,5vw,56px);color:var(--white);line-height:1.1;letter-spacing:-1px;margin-bottom:16px}
+  .hero p{font-size:17px;color:rgba(255,255,255,0.55);font-weight:300;max-width:520px;line-height:1.7;margin-bottom:32px}
+  .hero-cta{background:var(--accent);color:var(--white);text-decoration:none;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:500;display:inline-block;transition:opacity 0.2s}
+  .hero-cta:hover{opacity:0.85}
+  .hero-icon-big{width:120px;height:120px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .hero-icon-big svg{width:56px;height:56px;stroke:var(--accent);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+  section{padding:80px 5%}
+  .section-inner{max-width:1100px;margin:0 auto}
+  .section-label{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px}
+  .section-title{font-family:'DM Serif Display',serif;font-size:clamp(26px,3.5vw,40px);line-height:1.15;letter-spacing:-0.5px;color:var(--ink);margin-bottom:40px}
+  .what-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .what-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:28px}
+  .what-card .num{font-family:'DM Serif Display',serif;font-size:36px;color:var(--accent);margin-bottom:8px}
+  .what-card h3{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:8px}
+  .what-card p{font-size:14px;color:var(--ink-muted);line-height:1.6;font-weight:300}
+  #what-we-do{background:var(--white)}
+  .do-list{display:flex;flex-direction:column}
+  .do-item{display:flex;align-items:flex-start;gap:16px;padding:24px 0;border-bottom:1px solid var(--border)}
+  .do-item:last-child{border-bottom:none}
+  .do-dot{width:10px;height:10px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:6px}
+  .do-item h4{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:4px}
+  .do-item p{font-size:14px;color:var(--ink-muted);line-height:1.6;font-weight:300}
+  #process{background:var(--paper-warm)}
+  .steps{display:flex;flex-direction:column}
+  .step{display:grid;grid-template-columns:60px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--border);align-items:start}
+  .step:last-child{border-bottom:none}
+  .step-num{font-family:'DM Serif Display',serif;font-size:40px;color:var(--border);line-height:1}
+  .step h3{font-size:16px;font-weight:500;margin-bottom:6px}
+  .step p{font-size:14px;color:var(--ink-muted);line-height:1.6;font-weight:300}
+  #faq{background:var(--white)}
+  .faq-item{border-bottom:1px solid var(--border);padding:24px 0;cursor:pointer}
+  .faq-item:last-child{border-bottom:none}
+  .faq-q{display:flex;justify-content:space-between;align-items:center;font-size:15px;font-weight:500;color:var(--ink)}
+  .faq-q span{font-size:20px;color:var(--ink-faint);transition:transform 0.2s;display:inline-block}
+  .faq-a{font-size:14px;color:var(--ink-muted);line-height:1.7;font-weight:300;margin-top:12px;display:none}
+  .faq-item.open .faq-a{display:block}
+  .faq-item.open .faq-q span{transform:rotate(45deg)}
+  .cta-bar{background:var(--ink);padding:60px 5%;text-align:center}
+  .cta-bar h2{font-family:'DM Serif Display',serif;font-size:clamp(24px,3vw,36px);color:var(--white);margin-bottom:12px}
+  .cta-bar p{color:rgba(255,255,255,0.45);font-size:15px;margin-bottom:28px;font-weight:300}
+  .cta-bar a{background:var(--accent);color:var(--white);text-decoration:none;padding:14px 32px;border-radius:100px;font-size:14px;font-weight:500;transition:opacity 0.2s;display:inline-block}
+  .cta-bar a:hover{opacity:0.85}
+  footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.08);padding:24px 5%;text-align:center}
+  footer p{font-size:13px;color:rgba(255,255,255,0.25)}
+  @media(max-width:768px){.hero-inner{grid-template-columns:1fr}.hero-icon-big{display:none}.what-grid{grid-template-columns:1fr}.step{grid-template-columns:48px 1fr}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="index.html" class="logo">Pullr <span>Studio</span></a>
+  <a href="index.html" class="back-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Back to home</a>
+</div></nav>
+
+<div class="hero"><div class="hero-inner">
+  <div>
+    <span class="hero-badge">Pullr Studio Service</span>
+    <h1>Sign-ups & Form Fills</h1>
+    <p>Registration forms, waitlists, subscriptions — we handle all sign-up tasks accurately and without delays.</p>
+    <a href="index.html#contact" class="hero-cta">Get started →</a>
+  </div>
+  <div class="hero-icon-big"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+</div></div>
+
+<section id="overview"><div class="section-inner">
+  <p class="section-label">Overview</p>
+  <h2 class="section-title">What is Sign-ups & Form Fills?</h2>
+  <div class="what-grid">
+    <div class="what-card"><div class="num">01</div><h3>Any Form</h3><p>From simple newsletter sign-ups to complex multi-step registration forms — we handle them all.</p></div><div class="what-card"><div class="num">02</div><h3>Zero Errors</h3><p>We review every submission before sending to ensure all fields are filled correctly.</p></div><div class="what-card"><div class="num">03</div><h3>Fast Turnaround</h3><p>Most sign-up tasks are completed the same day they are received.</p></div><div class="what-card"><div class="num">04</div><h3>Bulk Sign-ups</h3><p>Need to register hundreds of entries? We do that efficiently and cleanly.</p></div>
+  </div>
+</div></section>
+
+<section id="what-we-do"><div class="section-inner">
+  <p class="section-label">What we handle</p>
+  <h2 class="section-title">Exactly what we do for you.</h2>
+  <div class="do-list">
+    <div class="do-item"><span class="do-dot"></span><div><h4>Event and conference registration</h4><p>We register you or your team for any event or conference form.</p></div></div><div class="do-item"><span class="do-dot"></span><div><h4>Waitlist submissions</h4><p>Get your spot secured on any waitlist before it fills up.</p></div></div><div class="do-item"><span class="do-dot"></span><div><h4>Newsletter and subscription sign-ups</h4><p>Bulk or single subscription management across platforms.</p></div></div><div class="do-item"><span class="do-dot"></span><div><h4>Product launch registrations</h4><p>Be first in line for drops, launches, and limited releases.</p></div></div><div class="do-item"><span class="do-dot"></span><div><h4>Application form assistance</h4><p>We fill out lengthy application forms carefully and completely.</p></div></div>
+  </div>
+</div></section>
+
+<section id="process"><div class="section-inner">
+  <p class="section-label">How it works</p>
+  <h2 class="section-title">Simple process, zero stress.</h2>
+  <div class="steps">
+    <div class="step"><div class="step-num">01</div><div><h3>Tell us what needs to be filled</h3><p>Share the form link, required details, and any instructions.</p></div></div><div class="step"><div class="step-num">02</div><div><h3>We review the form</h3><p>Our team checks the form structure and prepares all required information.</p></div></div><div class="step"><div class="step-num">03</div><div><h3>We submit accurately</h3><p>Every field is filled carefully and the form is submitted correctly.</p></div></div><div class="step"><div class="step-num">04</div><div><h3>Confirmation sent to you</h3><p>We send you proof of submission and any confirmation received.</p></div></div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="section-inner">
+  <p class="section-label">FAQ</p>
+  <h2 class="section-title">Common questions.</h2>
+  <div class="faq-list">
+    <div class="faq-item"><div class="faq-q">What kinds of forms do you fill?<span>+</span></div><div class="faq-a">Any online form — registrations, waitlists, applications, subscriptions, and more.</div></div><div class="faq-item"><div class="faq-q">Can you handle forms that require verification?<span>+</span></div><div class="faq-a">Yes, we handle email and SMS verification steps as part of the process.</div></div><div class="faq-item"><div class="faq-q">Do you do bulk sign-ups?<span>+</span></div><div class="faq-a">Absolutely — bulk submissions are one of our most requested services.</div></div><div class="faq-item"><div class="faq-q">How quickly can you complete a sign-up task?<span>+</span></div><div class="faq-a">Most tasks are done within a few hours of receiving the details.</div></div>
+  </div>
+</div></section>
+
+<div class="cta-bar">
+  <h2>Ready to get started?</h2>
+  <p>Send us your task and we'll get back to you within a few hours.</p>
+  <a href="index.html#contact">Contact us →</a>
+</div>
+<footer><p>© 2026 Pullr Studio. All rights reserved.</p></footer>
+<script>document.querySelectorAll('.faq-item').forEach(el=>el.addEventListener('click',()=>el.classList.toggle('open')));</script>
+</body></html>
